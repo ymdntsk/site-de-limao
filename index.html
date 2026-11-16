@@ -1,0 +1,443 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pilha de Limão: Como Funciona a Bateria Caseira</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts (Inter & Bubblegum Sans para estilo divertido) -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=Fredoka:wght@400;600&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+        .font-fun {
+            font-family: 'Fredoka', cursive, sans-serif;
+        }
+        /* Custom Glowing & Pulse animations */
+        @keyframes pulse-glow {
+            0%, 100% { filter: drop-shadow(0 0 8px rgba(234, 179, 8, 0.6)); }
+            50% { filter: drop-shadow(0 0 20px rgba(234, 179, 8, 0.9)); }
+        }
+        .glow-lemon {
+            animation: pulse-glow 2s infinite ease-in-out;
+        }
+        /* LCD Screen style for digital calculator */
+        .lcd-screen {
+            background-color: #9ead86;
+            color: #1a2e05;
+            font-family: 'Courier New', Courier, monospace;
+            box-shadow: inset 0 2px 5px rgba(0,0,0,0.4);
+        }
+    </style>
+</head>
+<body class="bg-amber-50 text-slate-800 min-h-screen flex flex-col justify-between">
+
+    <!-- Header / Navbar -->
+    <header class="bg-gradient-to-r from-yellow-400 via-lime-400 to-green-500 text-slate-900 shadow-md sticky top-0 z-50">
+        <div class="max-w-5xl mx-auto px-4 py-4 flex flex-wrap justify-between items-center">
+            <div class="flex items-center space-x-3">
+                <i class="fa-solid fa-lemon text-3xl text-yellow-100 drop-shadow-md"></i>
+                <h1 class="text-2xl md:text-3xl font-fun font-bold tracking-wide">Pilha de Limão ⚡</h1>
+            </div>
+            <nav class="mt-2 sm:mt-0 flex space-x-4 font-semibold text-sm sm:text-base">
+                <a href="#materiais" class="hover:text-white transition-colors">Materiais</a>
+                <a href="#como-funciona" class="hover:text-white transition-colors">Como Funciona</a>
+                <a href="#passo-a-passo" class="hover:text-white transition-colors">Passo a Passo</a>
+                <a href="#simulador" class="hover:text-white transition-colors">Simulador</a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="max-w-5xl mx-auto px-4 py-8 space-y-12 flex-grow">
+
+        <!-- Hero Section -->
+        <section class="bg-white rounded-3xl p-6 sm:p-10 shadow-lg border border-yellow-200 flex flex-col md:flex-row items-center gap-8">
+            <div class="flex-1 space-y-4">
+                <span class="inline-block bg-lime-100 text-lime-800 font-semibold px-3 py-1 rounded-full text-sm">Experimento Científico</span>
+                <h2 class="text-3xl sm:text-4xl font-fun font-bold text-slate-900 leading-tight">
+                    Transformando Limões em Energia Real! 🍋🔋
+                </h2>
+                <p class="text-slate-600 text-lg leading-relaxed">
+                    Você sabia que dá pra ligar uma <strong>calculadora digital</strong> usando apenas <strong>limões, moedas de cobre, clipes de papel e fios</strong>? 
+                    Descubra como essa reação eletroquímica funciona na prática!
+                </p>
+                <div class="pt-2 flex flex-wrap gap-4">
+                    <a href="#simulador" class="bg-gradient-to-r from-lime-500 to-green-600 text-white font-bold px-6 py-3 rounded-xl shadow-md hover:opacity-90 transition-all flex items-center gap-2">
+                        <i class="fa-solid fa-calculator"></i> Testar no Simulador
+                    </a>
+                    <a href="#como-funciona" class="bg-yellow-100 text-yellow-800 font-bold px-6 py-3 rounded-xl border border-yellow-300 hover:bg-yellow-200 transition-all flex items-center gap-2">
+                        <i class="fa-solid fa-atom"></i> Entender a Química
+                    </a>
+                </div>
+            </div>
+            <div class="w-full md:w-1/2 flex justify-center">
+                <div class="relative w-64 h-64 sm:w-80 sm:h-80 flex items-center justify-center">
+                    <!-- Lemon Graphic -->
+                    <div class="w-56 h-40 bg-yellow-400 rounded-full flex items-center justify-center relative shadow-inner border-4 border-yellow-500 glow-lemon transform -rotate-12">
+                        <!-- Citric Texture -->
+                        <div class="absolute inset-2 border-2 border-dashed border-yellow-300 rounded-full opacity-60"></div>
+                        <!-- Moeda (Cobre) -->
+                        <div class="absolute -top-4 left-12 w-8 h-14 bg-amber-700 border-2 border-amber-900 rounded-lg flex items-center justify-center text-xs text-amber-200 font-bold shadow-md transform -rotate-12">
+                            Cu
+                        </div>
+                        <!-- Clipe (Zinco/Aço) -->
+                        <div class="absolute -top-6 right-12 w-6 h-16 bg-slate-300 border-2 border-slate-500 rounded-full flex items-center justify-center text-xs text-slate-700 font-bold shadow-md transform rotate-12">
+                            Zn
+                        </div>
+                        <span class="font-fun text-yellow-800 text-2xl font-bold opacity-40">SUCO ÁCIDO</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Materiais Utilizados -->
+        <section id="materiais" class="scroll-mt-20">
+            <div class="text-center mb-8">
+                <h3 class="text-2xl sm:text-3xl font-fun font-bold text-slate-800">🛠️ Materiais do Experimento</h3>
+                <p class="text-slate-600">O que você precisa para montar essa bateria caseira</p>
+            </div>
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+                
+                <div class="bg-white p-6 rounded-2xl shadow-sm border border-slate-100 flex flex-col items-center text-center hover:shadow-md transition">
+                    <div class="w-16 h-16 bg-yellow-100 rounded-full flex items-center justify-center text-yellow-600 text-3xl mb-4">
+                        🍋
+                    </div>
+                    <h4 class="font-bold text-lg text-slate-800 mb-1">Limões Suculentos</h4>
+                    <p class="text-sm text-slate-600">Atuam como o <strong>Eletrólito</strong>. O ácido cítrico dentro do limão permite o transporte de íons.</p>
+                </div>
+
+                <div class="bg-white p-6 rounded-2xl shadow-sm border border-slate-100 flex flex-col items-center text-center hover:shadow-md transition">
+                    <div class="w-16 h-16 bg-amber-100 rounded-full flex items-center justify-center text-amber-800 text-3xl mb-4">
+                        🪙
+                    </div>
+                    <h4 class="font-bold text-lg text-slate-800 mb-1">Moeda de Cobre</h4>
+                    <p class="text-sm text-slate-600">É o <strong>Pólo Positivo (Cátodo)</strong>. O cobre tem alta afinidade para receber elétrons.</p>
+                </div>
+
+                <div class="bg-white p-6 rounded-2xl shadow-sm border border-slate-100 flex flex-col items-center text-center hover:shadow-md transition">
+                    <div class="w-16 h-16 bg-slate-100 rounded-full flex items-center justify-center text-slate-600 text-3xl mb-4">
+                        📎
+                    </div>
+                    <h4 class="font-bold text-lg text-slate-800 mb-1">Clipes de Papel (Zinco)</h4>
+                    <p class="text-sm text-slate-600">É o <strong>Pólo Negativo (Ânodo)</strong>. O metal galvanizado perde elétrons facilmente.</p>
+                </div>
+
+                <div class="bg-white p-6 rounded-2xl shadow-sm border border-slate-100 flex flex-col items-center text-center hover:shadow-md transition">
+                    <div class="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center text-green-600 text-3xl mb-4">
+                        🔌
+                    </div>
+                    <h4 class="font-bold text-lg text-slate-800 mb-1">Fios e Calculadora</h4>
+                    <p class="text-sm text-slate-600">Os <strong>Fios de Cobre</strong> conduzem a corrente até a <strong>Calculadora</strong> de baixo consumo.</p>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- Como Funciona / A Reação -->
+        <section id="como-funciona" class="bg-gradient-to-br from-slate-900 to-slate-800 text-white rounded-3xl p-6 sm:p-10 shadow-xl scroll-mt-20">
+            <div class="max-w-3xl mx-auto space-y-6">
+                <div class="inline-flex items-center gap-2 bg-yellow-500/20 text-yellow-300 border border-yellow-500/40 px-3 py-1 rounded-full text-xs font-semibold uppercase tracking-wider">
+                    <i class="fa-solid fa-flask"></i> Química Explica
+                </div>
+                <h3 class="text-3xl font-fun font-bold">Qual é a reação por trás do Limão?</h3>
+                <p class="text-slate-300 leading-relaxed text-base sm:text-lg">
+                    O limão em si <strong>não produz energia sozinho</strong>! Ele funciona como uma ponte química contendo ácido cítrico com íons dissolvidos. A verdadeira magia é a reação de <strong>Oxirredução (Redox)</strong> entre dois metais diferentes:
+                </p>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-4 pt-4">
+                    <!-- Ânodo -->
+                    <div class="bg-slate-800/80 border border-slate-700 p-5 rounded-2xl space-y-2">
+                        <div class="flex items-center justify-between">
+                            <span class="font-bold text-red-400">1. Ânodo (Pólo Negativo)</span>
+                            <span class="bg-red-400/20 text-red-300 text-xs px-2 py-0.5 rounded">Oxidação</span>
+                        </div>
+                        <h4 class="font-bold text-lg">O Clipe (Zinco/Ferro)</h4>
+                        <p class="text-sm text-slate-400">
+                            O clipe reage com o ácido do limão e **perde elétrons** (oxida). Esses elétrons ficam "sobrando" e precisam viajar até o outro polo.
+                        </p>
+                    </div>
+
+                    <!-- Cátodo -->
+                    <div class="bg-slate-800/80 border border-slate-700 p-5 rounded-2xl space-y-2">
+                        <div class="flex items-center justify-between">
+                            <span class="font-bold text-green-400">2. Cátodo (Pólo Positivo)</span>
+                            <span class="bg-green-400/20 text-green-300 text-xs px-2 py-0.5 rounded">Redução</span>
+                        </div>
+                        <h4 class="font-bold text-lg">A Moedas (Cobre)</h4>
+                        <p class="text-sm text-slate-400">
+                            A moeda atrai os elétrons livremente. Os íons de hidrogênio do ácido recebem esses elétrons na superfície do cobre, formando gás hidrogênio.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- O fluxo de elétrons -->
+                <div class="bg-yellow-500/10 border border-yellow-500/30 rounded-2xl p-5 flex items-start gap-4">
+                    <i class="fa-solid fa-bolt text-yellow-400 text-2xl mt-1"></i>
+                    <div>
+                        <h4 class="font-bold text-yellow-300 text-lg">O Fluxo de Corrente Elétrica</h4>
+                        <p class="text-sm text-slate-300">
+                            Quando você conecta o clipe e a moeda com os <strong>fios</strong> através da <strong>calculadora</strong>, os elétrons passam por dentro do circuito da calculadora para ir de um polo ao outro. Essa passagem de elétrons é a **corrente elétrica** que faz o visor acender!
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Passo a Passo -->
+        <section id="passo-a-passo" class="scroll-mt-20">
+            <div class="text-center mb-10">
+                <h3 class="text-2xl sm:text-3xl font-fun font-bold text-slate-800">📋 Como Montar o Experimento</h3>
+                <p class="text-slate-600">Siga estas etapas para ligar sua própria calculadora</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                <!-- Passo 1 -->
+                <div class="bg-white rounded-2xl p-6 shadow-sm border border-slate-200 relative flex flex-col justify-between">
+                    <div>
+                        <span class="w-10 h-10 bg-yellow-400 text-slate-900 rounded-full font-bold font-fun flex items-center justify-center text-xl mb-4 shadow">1</span>
+                        <h4 class="font-bold text-xl text-slate-800 mb-2">Amacie os Limões</h4>
+                        <p class="text-slate-600 text-sm">
+                            Role os limões em cima da mesa apertando-os levemente com a mão. Isso rompe as bolsas de suco internas, liberando mais suco ácido e aumentando a condução elétrica.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Passo 2 -->
+                <div class="bg-white rounded-2xl p-6 shadow-sm border border-slate-200 relative flex flex-col justify-between">
+                    <div>
+                        <span class="w-10 h-10 bg-yellow-400 text-slate-900 rounded-full font-bold font-fun flex items-center justify-center text-xl mb-4 shadow">2</span>
+                        <h4 class="font-bold text-xl text-slate-800 mb-2">Insira os Eletrodos</h4>
+                        <p class="text-slate-600 text-sm">
+                            Em cada limão, faça dois pequenos cortes e insira de um lado a <strong>moeda de cobre</strong> e do outro o <strong>clipe de papel</strong>. Certifique-se de que eles <em>não se toquem</em> lá dentro!
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Passo 3 -->
+                <div class="bg-white rounded-2xl p-6 shadow-sm border border-slate-200 relative flex flex-col justify-between">
+                    <div>
+                        <span class="w-10 h-10 bg-yellow-400 text-slate-900 rounded-full font-bold font-fun flex items-center justify-center text-xl mb-4 shadow">3</span>
+                        <h4 class="font-bold text-xl text-slate-800 mb-2">Conecte em Série</h4>
+                        <p class="text-slate-600 text-sm">
+                            Um limão gera cerca de 0.9V a 1.0V. Como a calculadora precisa de ~1.5V, conecte 2 a 3 limões em <strong>série</strong> (Moeda do Limão 1 ➡️ Clipe do Limão 2) usando os fios!
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Simulador Interativo -->
+        <section id="simulador" class="bg-white rounded-3xl p-6 sm:p-10 shadow-xl border-2 border-lime-400 scroll-mt-20">
+            <div class="text-center mb-8">
+                <span class="bg-lime-100 text-lime-800 text-xs font-bold px-3 py-1 rounded-full uppercase tracking-wider">Laboratório Virtual</span>
+                <h3 class="text-2xl sm:text-4xl font-fun font-bold text-slate-900 mt-2">Simulador da Bateria de Limão</h3>
+                <p class="text-slate-600">Adicione limões ao circuito para conseguir a voltagem necessária (1.5V) e ligar a calculadora!</p>
+            </div>
+
+            <div class="flex flex-col lg:flex-row items-center justify-between gap-8 bg-slate-50 p-6 rounded-2xl border border-slate-200">
+                
+                <!-- Controles do Simulador -->
+                <div class="w-full lg:w-1/2 space-y-6">
+                    <div>
+                        <label class="font-bold text-slate-700 block mb-2">Quantidade de Limões no Circuito:</label>
+                        <div class="flex items-center space-x-4">
+                            <button id="btn-remove" class="w-12 h-12 bg-slate-200 hover:bg-slate-300 text-slate-800 font-bold text-xl rounded-xl transition shadow">-</button>
+                            <span id="lemon-count" class="text-3xl font-fun font-bold text-lime-600 w-12 text-center">1</span>
+                            <button id="btn-add" class="w-12 h-12 bg-lime-500 hover:bg-lime-600 text-white font-bold text-xl rounded-xl transition shadow">+</button>
+                        </div>
+                    </div>
+
+                    <!-- Status da Voltagem -->
+                    <div class="space-y-2">
+                        <div class="flex justify-between text-sm font-semibold text-slate-700">
+                            <span>Tensão Gerada: <strong id="voltage-text" class="text-lime-700">0.9 V</strong></span>
+                            <span>Mínimo Necessário: <strong>1.5 V</strong></span>
+                        </div>
+                        <!-- Progress Bar -->
+                        <div class="w-full bg-slate-200 rounded-full h-4 overflow-hidden">
+                            <div id="voltage-bar" class="bg-yellow-400 h-full transition-all duration-300" style="width: 60%;"></div>
+                        </div>
+                    </div>
+
+                    <!-- Mensagem Informativa -->
+                    <div id="sim-message" class="p-4 rounded-xl text-sm font-semibold bg-amber-100 text-amber-900 border border-amber-300 flex items-center gap-3">
+                        <i class="fa-solid fa-triangle-exclamation text-lg text-amber-600"></i>
+                        <span>Apenas 1 limão gera cerca de 0.9V. A calculadora precisa de pelo menos 1.5V para funcionar!</span>
+                    </div>
+                </div>
+
+                <!-- Visualização da Calculadora -->
+                <div class="w-full lg:w-1/2 flex justify-center">
+                    <div class="w-64 bg-slate-800 p-6 rounded-3xl shadow-2xl border-4 border-slate-700 flex flex-col items-center">
+                        <div class="w-full text-center text-xs text-slate-400 font-bold mb-2 tracking-widest uppercase">Calc-Citrus 2000</div>
+                        
+                        <!-- LCD Display -->
+                        <div id="lcd-display" class="w-full h-16 lcd-screen rounded-lg flex items-center justify-end px-4 text-3xl font-bold tracking-wider mb-4 opacity-40 transition-all duration-300">
+                            <span id="lcd-text"></span>
+                        </div>
+
+                        <!-- Teclado Fictício -->
+                        <div class="grid grid-cols-4 gap-2 w-full">
+                            <button onclick="pressCalc('7')" class="bg-slate-600 text-white p-2 rounded text-sm font-bold shadow active:bg-slate-500">7</button>
+                            <button onclick="pressCalc('8')" class="bg-slate-600 text-white p-2 rounded text-sm font-bold shadow active:bg-slate-500">8</button>
+                            <button onclick="pressCalc('9')" class="bg-slate-600 text-white p-2 rounded text-sm font-bold shadow active:bg-slate-500">9</button>
+                            <button onclick="pressCalc('÷')" class="bg-amber-600 text-white p-2 rounded text-sm font-bold shadow active:bg-amber-500">÷</button>
+
+                            <button onclick="pressCalc('4')" class="bg-slate-600 text-white p-2 rounded text-sm font-bold shadow active:bg-slate-500">4</button>
+                            <button onclick="pressCalc('5')" class="bg-slate-600 text-white p-2 rounded text-sm font-bold shadow active:bg-slate-500">5</button>
+                            <button onclick="pressCalc('6')" class="bg-slate-600 text-white p-2 rounded text-sm font-bold shadow active:bg-slate-500">6</button>
+                            <button onclick="pressCalc('×')" class="bg-amber-600 text-white p-2 rounded text-sm font-bold shadow active:bg-amber-500">×</button>
+
+                            <button onclick="pressCalc('1')" class="bg-slate-600 text-white p-2 rounded text-sm font-bold shadow active:bg-slate-500">1</button>
+                            <button onclick="pressCalc('2')" class="bg-slate-600 text-white p-2 rounded text-sm font-bold shadow active:bg-slate-500">2</button>
+                            <button onclick="pressCalc('3')" class="bg-slate-600 text-white p-2 rounded text-sm font-bold shadow active:bg-slate-500">3</button>
+                            <button onclick="pressCalc('-')" class="bg-amber-600 text-white p-2 rounded text-sm font-bold shadow active:bg-amber-500">-</button>
+
+                            <button onclick="pressCalc('C')" class="bg-red-600 text-white p-2 rounded text-sm font-bold shadow active:bg-red-500">C</button>
+                            <button onclick="pressCalc('0')" class="bg-slate-600 text-white p-2 rounded text-sm font-bold shadow active:bg-slate-500">0</button>
+                            <button onclick="pressCalc('=')" class="bg-green-600 text-white p-2 rounded text-sm font-bold shadow active:bg-green-500">=</button>
+                            <button onclick="pressCalc('+')" class="bg-amber-600 text-white p-2 rounded text-sm font-bold shadow active:bg-amber-500">+</button>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- Perguntas Frequentes / Dicas -->
+        <section class="bg-white rounded-3xl p-6 sm:p-8 shadow-sm border border-slate-200">
+            <h3 class="text-2xl font-fun font-bold text-slate-800 mb-4">💡 Dicas importantes para a apresentação</h3>
+            <ul class="space-y-3 text-slate-600 text-sm sm:text-base">
+                <li class="flex items-start gap-3">
+                    <i class="fa-solid fa-check text-green-500 mt-1"></i>
+                    <span><strong>Limões mais velhos/maduros:</strong> Costumam funcionar melhor pois têm mais suco e melhor condução elétrica.</span>
+                </li>
+                <li class="flex items-start gap-3">
+                    <i class="fa-solid fa-check text-green-500 mt-1"></i>
+                    <span><strong>Limpeza dos metais:</strong> Lixe levemente a moeda e o clipe se estiverem sujos para garantir bom contato elétrico.</span>
+                </li>
+                <li class="flex items-start gap-3">
+                    <i class="fa-solid fa-check text-green-500 mt-1"></i>
+                    <span><strong>Por que a calculadora?</strong> Calculadoras digitais simples consomem pouquíssima corrente (microamperes), por isso conseguem ser ligadas por pilhas fracas de fruta. Lâmpadas normais não acenderiam!</span>
+                </li>
+            </ul>
+        </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-slate-900 text-slate-400 py-6 border-t border-slate-800">
+        <div class="max-w-5xl mx-auto px-4 text-center text-sm space-y-2">
+            <p>Experimento de Ciências — Pilha Eletroquímica de Limão com Moedas, Clipes e Fios 🍋⚡</p>
+            <p class="text-slate-500 text-xs">Desenvolvido para explicação didática de projetos escolares.</p>
+        </div>
+    </footer>
+
+    <!-- Interactive Script -->
+    <script>
+        let lemonCount = 1;
+        const VOLTS_PER_LEMON = 0.9;
+        const MIN_VOLTAGE_REQUIRED = 1.5;
+        
+        let calcInput = "";
+        let isPoweredOn = false;
+
+        const lemonCountEl = document.getElementById('lemon-count');
+        const voltageTextEl = document.getElementById('voltage-text');
+        const voltageBarEl = document.getElementById('voltage-bar');
+        const simMessageEl = document.getElementById('sim-message');
+        const lcdDisplayEl = document.getElementById('lcd-display');
+        const lcdTextEl = document.getElementById('lcd-text');
+
+        document.getElementById('btn-add').addEventListener('click', () => {
+            if (lemonCount < 4) {
+                lemonCount++;
+                updateSimulation();
+            }
+        });
+
+        document.getElementById('btn-remove').addEventListener('click', () => {
+            if (lemonCount > 1) {
+                lemonCount--;
+                updateSimulation();
+            }
+        });
+
+        function updateSimulation() {
+            lemonCountEl.textContent = lemonCount;
+            const currentVoltage = (lemonCount * VOLTS_PER_LEMON).toFixed(1);
+            voltageTextEl.textContent = `${currentVoltage} V`;
+
+            // Percent based on max 3.6V (4 lemons)
+            const percentage = Math.min((currentVoltage / 3.0) * 100, 100);
+            voltageBarEl.style.width = `${percentage}%`;
+
+            if (currentVoltage >= MIN_VOLTAGE_REQUIRED) {
+                isPoweredOn = true;
+                lcdDisplayEl.classList.remove('opacity-40');
+                lcdDisplayEl.classList.add('opacity-100');
+                voltageBarEl.className = "bg-green-500 h-full transition-all duration-300";
+                
+                simMessageEl.className = "p-4 rounded-xl text-sm font-semibold bg-green-100 text-green-900 border border-green-300 flex items-center gap-3";
+                simMessageEl.innerHTML = `<i class="fa-solid fa-circle-check text-lg text-green-600"></i>
+                    <span>Energia suficiente! Com <strong>${lemonCount} limões (${currentVoltage}V)</strong> a calculadora liga perfeitamente!</span>`;
+                
+                if (lcdTextEl.textContent === "") {
+                    lcdTextEl.textContent = "0";
+                }
+            } else {
+                isPoweredOn = false;
+                lcdDisplayEl.classList.remove('opacity-100');
+                lcdDisplayEl.classList.add('opacity-40');
+                voltageBarEl.className = "bg-yellow-400 h-full transition-all duration-300";
+                
+                simMessageEl.className = "p-4 rounded-xl text-sm font-semibold bg-amber-100 text-amber-900 border border-amber-300 flex items-center gap-3";
+                simMessageEl.innerHTML = `<i class="fa-solid fa-triangle-exclamation text-lg text-amber-600"></i>
+                    <span>Voltagem insuficiente! Adicione mais limões para atingir pelo menos 1.5V.</span>`;
+                
+                calcInput = "";
+                lcdTextEl.textContent = "";
+            }
+        }
+
+        function pressCalc(val) {
+            if (!isPoweredOn) return;
+
+            if (val === 'C') {
+                calcInput = "";
+                lcdTextEl.textContent = "0";
+                return;
+            }
+
+            if (val === '=') {
+                try {
+                    // Substitui os símbolos para avaliação segura simples
+                    let sanitized = calcInput.replace(/×/g, '*').replace(/÷/g, '/');
+                    let result = eval(sanitized);
+                    calcInput = String(result);
+                    lcdTextEl.textContent = result;
+                } catch (e) {
+                    lcdTextEl.textContent = "Erro";
+                    calcInput = "";
+                }
+                return;
+            }
+
+            if (lcdTextEl.textContent === "0" && !isNaN(val)) {
+                calcInput = val;
+            } else {
+                calcInput += val;
+            }
+            lcdTextEl.textContent = calcInput;
+        }
+
+        // Inicializa o estado
+        updateSimulation();
+    </script>
+</body>
+</html>
